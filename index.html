@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taller de Arte La Paleta</title>
+  <link rel="stylesheet" href="stylo.css">
+</head>
+<body>
+  <header>
+    <h1>Taller de Arte La Paleta</h1>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#talleres">Talleres</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section class="section" id="inicio">
+    <h2>Bienvenidos</h2>
+    <p>Explora tu creatividad en un espacio lleno de inspiración. Nuestro taller está abierto para todas las edades y niveles. ¡Ven y pinta tu mundo con nosotros!</p>
+  </section>
+
+  <section class="section" id="talleres">
+    <h2>Nuestros Talleres</h2>
+    <div class="courses">
+      <div class="course-card">
+        <h3>Pintura Acrílica</h3>
+        <p>Explora técnicas modernas y tradicionales en un ambiente relajado.</p>
+      </div>
+      <div class="course-card">
+        <h3>Acuarela Creativa</h3>
+        <p>Aprende a dominar los colores y formas con fluidez y expresión.</p>
+      </div>
+      <div class="course-card">
+        <h3>Dibujo a Lápiz</h3>
+        <p>Desarrolla tu habilidad para observar y representar el mundo que te rodea.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galeria">
+    <h2>Galería de Obras</h2>
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carouselSlide">
+        <img src="images/1.jpg" alt="Obra 1">
+        <img src="images/2.jpg" alt="Obra 2">
+        <img src="images/3.jpg" alt="Obra 3">
+        <img src="images/4.jpg" alt="Obra 4">
+      </div>
+      <div class="carousel-buttons">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>Email: contacto@lapaleta.com</p>
+    <p>Tel: +52 123 456 7890</p>
+    <p>Dirección: Calle del Arte #45, Ciudad Creativa</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Taller de Arte La Paleta. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    const carousel = document.getElementById('carouselSlide');
+    const images = carousel.querySelectorAll('img');
+    const total = images.length;
+    let index = 0;
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      index = (index + 1) % total;
+      updateCarousel();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      index = (index - 1 + total) % total;
+      updateCarousel();
+    });
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    // Cambio automático cada 10 segundos
+    setInterval(() => {
+      index = (index + 1) % total;
+      updateCarousel();
+    }, 10000);
+  </script>
+</body>
+</html>
